@@ -97,7 +97,7 @@ Maybe you're curious about neo wallet's transfer strategy, please check our wall
 
 
 
-Edited by Peter Lin
+Edited by Peter Lin (https://github.com/PeterLinX/Introduction-to-Neo)
 
 
 
