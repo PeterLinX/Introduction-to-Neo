@@ -26,7 +26,7 @@ If I want to transfer my coins, Neo wallet will calculate the total coins that I
 
 For example, my wallet have 150ANS and 110ANC, I want to transfer 120ANS to my friend's address. My total coins are in 3 different address, wallet will calculate and make an optimal transfer strategy which is 100ANS from address1 and 20ANS from address3. Then a tx will be constructed by wallet according to this strategy and send it to neo block chain through p2p network protocol, in the meantime, wallet's balance will make changes. 
 
-![Neo Wallet](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/Neo%20Wallet/Neo%20Wallet.jpg)
+![Neo Wallet](https://i.imgur.com/qbjwS1e.png)
 
 If this tx is verified by different neo nodes, it will be record in one block, which means this tx is effective. Wallet will be noticed by block chain by its sync mechanism and confirm this tx. However, if this tx cannot pass the verification of neo nodes for some reason, it will not be confirmed by wallet. I have to rebuild wallet index to erase this failed tx and make balance right again.
 
