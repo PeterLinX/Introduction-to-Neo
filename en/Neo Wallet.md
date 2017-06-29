@@ -1,6 +1,6 @@
 # Neo Wallet
 
-### Introduce
+### Introduction
 
 Imagine a wallet in our pocket, there're several cards in it. When we need to pay the bill, we will calculate the money we have first. Neo wallet is the same as the wallet in our pocket, however, it have addresses instead of cards.
 
