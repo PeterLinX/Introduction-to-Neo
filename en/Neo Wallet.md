@@ -2,7 +2,7 @@
 
 ### Introduce
 
-Imagine a physical wallet in our pocket, there are several debit cards in it, each containing a different balance. When we need to pay a bill, we will use these cards to pay it off. If the bill is expensive enough, one card alone might not have enough balance on it to pay off the entire bill. So we would use multiple cards in order to pay off the bill. The Neo wallet is the same as the wallet in our pocket, however, instead of cards, the Neo wallet uses addresses to hold balances.
+Imagine a physical wallet in our pocket, there are several debit cards in it, each containing a different balance. When we need to pay a bill, we will use these cards to pay it off. If the bill is expensive enough, one card alone might not have enough balance on it to pay off the entire bill. So we would use multiple cards to pay off the bill. The Neo wallet is the same as the wallet in our pocket, however, instead of cards, the Neo wallet uses addresses to hold balances.
 
 ![Comparison](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/Neo%20Wallet/Comparison.jpg)
 
@@ -11,9 +11,7 @@ Imagine a physical wallet in our pocket, there are several debit cards in it, ea
 ### Balance
 
 ##### Phyiscal Wallet Analogy
-Imagine a scenario where I have two cards (or wallet ids), each containing a balance of ¥100. If I have a ¥100 bill to pay, then I can pay it off using only the first card. But if I have a ¥150 bill to pay, my first card will not be enough. I have to use both of my cards in order to pay off my bill. I have to use the full amount on both cards, and the remainder or change will be given back to me on another card of my choosing. Thus at the end of this transaction I own a card which has ¥50 worth of balance. 
-
-This same scenario plays in the NEO wallet. I will have two wallet ID's instead of cards, and my change is returned back to me to a third wallet ID.
+Imagine a scenario where I have two cards, each containing a balance of ¥100. If I have a ¥100 bill to pay, then I can pay it off using only the first card. But if I have a ¥150 bill to pay, my first card will not be enough. I have to use both of my cards in order to pay off my bill. I have to use the full amount on both cards, and the remainder or change will be given back to me on another card of my choosing. Thus at the end of this transaction I own a card which has ¥50 worth of balance. 
 
 ![Balance](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/Neo%20Wallet/Balance.jpg)
 
@@ -25,13 +23,13 @@ If I want to transfer my coins, Neo wallet will calculate the optimal input addr
 
 ![Transfer](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/Neo%20Wallet/Transfer.jpg)
 
-For example, my wallet has 150 Neo Shares and 110 Neo Coins, I want to transfer 120 Neo Shares to my friend's address, but my 150 Shares are stored in 3 different addresses. The Neo wallet will calculate and make an optimal transfer strategy which is 100 Neo Shares from address1 and 20 Neo Shares from address3. Then a transaction will be constructed by the wallet according to this strategy and send it to the neo blockchain through the p2p network protocol. The client wallet will  update the local balance in the mean time.
+For example, my wallet has 150 Neo and 110 Neo Gas, I want to transfer 120 Neo to my friend's address, but my 150 Neo are stored in 3 different addresses. The Neo wallet will calculate and make an optimal transfer strategy which is 100 Neo from address1 and 20 Neo from address3. Then a transaction will be constructed by the wallet according to this strategy and send it to the neo blockchain through the p2p network protocol. The client wallet will  update the local balance in the mean time.
 
 ![Neo Wallet](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/Neo%20Wallet/Neo%20Wallet.jpg)
 
 If this tx is verified by multiple different neo nodes, it will be recorded in the next block on the blockchain, which means that the tx has been stored and recorded in the blockchain. The wallet will be notified by the blockchain by its sync mechanism and confirm this tx. 
 
-However, if this tx does not pass the verification of neo nodes for some reason, it will not be confirmed by other wallets and will not be recorded in the blockchain. But since your own wallet has updated your balance to reflect the transfer, you will have to rebuild wallet index in order to remove this failed tx and rescan the blockchain to restore the balance of Neo shares in each of the addresses in your wallet. Since the transaction has not been recorded on the blockchain, your Neo shares holdings will not have changed and you still "own" the Neo shares. The best way to check is to go on a blockchain explorer and search for your address. Any unconfirmed tx will not show up in the blockchain as it has not be recorded in the blocks yet.
+However, if this tx does not pass the verification of neo nodes for some reason, it will not be confirmed by wallet and will not be recorded in the blockchain. But since your own wallet has updated your balance to reflect the transfer, you will have to rebuild wallet index in order to remove this failed tx and rescan the blockchain to restore the balance of Neo in each of the addresses in your wallet. Since the transaction has not been recorded on the blockchain, your Neo holdings will not have changed and you still "own" them. The best way to check is to go on a blockchain explorer and search for your address. Any unconfirmed tx will not show up in the blockchain as it has not be recorded in the blocks yet.
 
 If you're curious about neo wallet's transfer strategy, please check our wallet code, and read the appendix blow. Neo block chain and wallet program is open source. You can build your own wallet by compiling the code hosted on github on your local machine. Enjoy!
 
