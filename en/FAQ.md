@@ -48,7 +48,7 @@
 
    A. PC client: You can use accelerate sync package(download it from https://www.antshares.org/client/chain.acc.zip) and sync process will be 10 minutes or so. If you sync from height 0, it will take you several hours.
 
-   B. Web or App client: If the network is fine, it will sync 12000 blocks per hour.
+   B. Web or App client: If the network is fine, it will sync 12000 blocks per hour. If you are experiencing a long sync, it is possible that using VPN or proxy could speed up the syncing process.
 
    ​
 
@@ -77,3 +77,15 @@
 12. How many Neo do I need to earn Neo gas?
 
     The smallest unit of Neo is 1. The smallest unit of Neo Gas is 0.00000001(one hundred millionth). As long as you possess Neo(at least 1 Neo), Neo gas will be generated automatically.
+    
+    ​
+    
+ 13. I have sent x amount of ANS/Neo to my wallet, it hasn't arrived, why? 
+
+	A. Please confirm with the crypto currency exchange from which you made the transfer that the transaction was successful. If so: 
+
+	B. Please check the status of your transaction/account on a block explorer (see Question 5). 
+
+	   B1. Once a transaction id has been generated and is on the block explorer, the transaction is successful and said amount has been transferred to your account. If the wallet does not display the correct balance, it is likely not synced up to date. To check if the wallet is up-to-date, see Question 6. To speed up the syncing process, see Question 8.
+
+	   B2. If you cannot find the transaction on the explorer, please contact the party sending said Neo/ANS, for the transaction is not completed. 
