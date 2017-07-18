@@ -54,19 +54,21 @@
 
 9. I can't see my Neo in my wallet?
 
-   Firstly, you can check your balance if it's right on blockchain browser of the Neo. You have to wait your wallet fully synced. If your wallet is fully synced, then:
+   1. you can check your balance if it's right on blockchain browser of the Neo. (http://antcha.in or https://antchain.xyz/)
 
-   A. PC client: Re-index your wallet.
+   2. You have to wait your wallet fully synced. If your wallet is fully synced, and there is still no Neo in your wallet, then:
 
-   B. Web or App client: Refresh your browser(Win: Ctrl+F5, Mac: Command+shift+r). I
+      A. PC client: Re-index your wallet.
+
+      B. Web or App client: Refresh your browser(Win: Ctrl+F5, Mac: Command+shift+r).
 
    ​
 
 10. For Mac user, how could I claim Neo Gas(antcoins)?
 
-   For now Mac user cannot claim Neo Gas. However, Neo Gas will be generated automatically as long as you keep them in your address.
+  For now Mac user cannot claim Neo Gas. However, Neo Gas will be generated automatically as long as you keep them in your address.
 
-   ​
+  ​
 
 11. If I keep my Neo in exchange how could I get my Neo Gas(antcoins)?
 
@@ -77,15 +79,15 @@
 12. How many Neo do I need to earn Neo gas?
 
     The smallest unit of Neo is 1. The smallest unit of Neo Gas is 0.00000001(one hundred millionth). As long as you possess Neo(at least 1 Neo), Neo gas will be generated automatically.
-    
+
     ​
-    
+
  13. I have sent x amount of ANS/Neo to my wallet, it hasn't arrived, why? 
 
-	A. Please confirm with the crypto currency exchange from which you made the transfer that the transaction was successful. If so: 
+   A. Please confirm with the crypto currency exchange from which you made the transfer that the transaction was successful. If so: 
 
-	B. Please check the status of your transaction/account on a block explorer (see Question 5). 
+   B. Please check the status of your transaction/account on a block explorer (see Question 5). 
 
-	   B1. Once a transaction id has been generated and is on the block explorer, the transaction is successful and said amount has been transferred to your account. If the wallet does not display the correct balance, it is likely not synced up to date. To check if the wallet is up-to-date, see Question 6. To speed up the syncing process, see Question 8.
+      B1. Once a transaction id has been generated and is on the block explorer, the transaction is successful and said amount has been transferred to your account. If the wallet does not display the correct balance, it is likely not synced up to date. To check if the wallet is up-to-date, see Question 6. To speed up the syncing process, see Question 8.
 
-	   B2. If you cannot find the transaction on the explorer, please contact the party sending said Neo/ANS, for the transaction is not completed. 
+      B2. If you cannot find the transaction on the explorer, please contact the party sending said Neo/ANS, for the transaction is not completed. 
