@@ -1,6 +1,6 @@
 # Neo Wallet
 
-### Introduce
+### Introduction
 
 Imagine a physical wallet in our pocket, there are several debit cards in it, each containing a different balance. When we need to pay a bill, we will use these cards to pay it off. If the bill is expensive enough, one card alone might not have enough balance on it to pay off the entire bill. So we would use multiple cards to pay off the bill. The Neo wallet is the same as the wallet in our pocket, however, instead of cards, the Neo wallet uses addresses to hold balances.
 
