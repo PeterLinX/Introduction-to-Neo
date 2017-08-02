@@ -18,15 +18,15 @@ t_start = Neo变为unspent状态时刻
 
 t_end = Neo变为spent状态时刻
 
-$\Delta$t _const = t_end - t_start
+Δt_const = t_end - t_start
 
-$\Delta$t _var = t - t_start，t为当前时刻
+Δt_var = t - t_start，t为当前时刻
 
-可提取的Gas = f(neo_amount, $\Delta$t _const)
+可提取的Gas = f(neo_amount, Δt_const)
 
 说明：由于$\Delta$t是定量，所以可提取的Gas也是一个定量。可提取Gas的大小取决于所持有的Neo数量以及两个状态的时间差。
 
-不可提取的Gas = f(neo_amount, $\Delta$t _var)
+不可提取的Gas = f(neo_amount, Δt_var)
 
 说明：由于t是变量，所以不可提取的Gas也随时间增长而不停增长，是一个变量。  
 
