@@ -1,8 +1,8 @@
-### 1.监视NEP5代币智能合约的脚本哈希
+### 1 监视NEP5代币智能合约的脚本哈希
 
 ![img](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/cn/images/NEP5%20TOKEN%20SALES/1.png)
 
-### 2.参与NEP5代币发售
+### 2 参与NEP5代币发售
 
 #### 2.1 执行
 
