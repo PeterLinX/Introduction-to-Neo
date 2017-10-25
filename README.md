@@ -12,4 +12,5 @@ Articles to explain details about Neo
 ​	What is Smart Contract?
 
 ### Other
-​	[NEO FAQ](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/FAQ.md)
+​[NEO FAQ](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/FAQ.md)  
+[NEP5 Token For Exchange](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/NEP5TokenForExchange.md)
