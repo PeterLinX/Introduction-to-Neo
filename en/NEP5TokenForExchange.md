@@ -1,12 +1,15 @@
 ### 1.Deposit
 
 #### 1.1 Run neo-cli
->dotnet neo-cli.dll /rpc --record-notifications
+>dotnet neo-cli.dll --rpc --record-notifications
 
-#### 1.2 neo-cli will generate a document file which have all notifications in its root path.
+#### 1.2 Receive Notifications
+If you need to get the notification of user's deposit, you can simply add parameter "--record-notifications". A document file called "notifications" will be generated in root path. 
 ![img](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/NEP5TokenForExchange/1.jpg)
+Notifications in every block will be recorded in a json file such as: 
+![img](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/NEP5TokenForExchange/2.jpg)
 
-#### 1.3 You can analyst these json file
+#### 1.3 Notifications json file
 For example, the content of the file "block-1503847" is: 
 ```json
 [
@@ -36,32 +39,42 @@ For example, the content of the file "block-1503847" is:
     }
 }]
 ```
-1.3.1 Filter contract by checking "contract"
+There is an array of notifications in this json file. There is only one object in the array, which means only one NEP5 event triggered in the block 1503847.
 
-1.3.2 Filter the function by checking first parameter of "value"
+#### 1.4 Analyse json file
 
-1.3.3 If the function is "transfer" then the value of the key "value" will be an array [transfer, from, to, amount]. So you can get all information of a transaction.
-
-1.3.4 Filter the "to" info. If it is the address of the exchange then you get a notification of deposit.
-
+(1) Filter contract by checking the value of "contract". Then you can have the right asset type.
+(2) Filter the function by checking the first object in "state". If the event is "transfer" then the value of the "state" will be:
+- An array of 4 objects: [event, from, to, amount]. It includes all information of a transaction;
+- The first object of the array will be the name of the "transfer" event : 
+```json
+{
+		"type": "ByteArray",
+		"value": "7472616e73666572"
+}
+```
+(3) Filter the third object in "state". If it is the address of the exchange then you get a notification of deposit.
 
 ### 2.Query
 
-You can use rpc api "invokefunction" by sending json to neo rpc server to query someone's balance.
+If you need to query someone's balance you should invoke two functions which are "balanceOf" and "decimals". Then You can get balance by combing these two numbers correctly.
 
-#### 2.1 Set up the script hash of the NEP5 token you are querying
-For example, you can find the script hash of RPX is : 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9.
+#### 2.1 Use RPC API "invokefunction"
+You can use rpc api "invokefunction" by sending json to neo rpc server to query someone's balance. There're 3 parameters that you need to set up.
 
-#### 2.2 Set up the name of method
-According to NEP5，if someone need to query his token balance he should invoke function "balanceOf".
+(1) Script hash
+Set up the script hash of the NEP5 token you are querying. For example, you can find the script hash of RPX is : 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9.
 
-#### 2.3 Set up the arguments of the method
-According to NEP5，there're two parameters in the main function. The first parameter is the name of methond that you need to invoke. The second parameter is an array, which is optional. If the method you are invoking need some arguments, you can passing them by constructing these parameters into an array.
+(2) The name of the method
+Set up the name of the method you are invoking. According to NEP5，if someone need to query his token balance he should invoke function "balanceOf".
 
-#### 2.4 Construct the json message
+(3) The arguments of the method
+According to NEP5，there're two parameters in the main function. The first parameter is the name of methond that you need to invoke. The second parameter is an array, which is optional. If the method you are invoking need some arguments, you can passing them by constructing these parameters into an array. For example, "balanceOf" methond in NEP5 returns the token balance of the '''account'''.
+<code>public static BigInteger balanceOf(byte[] account)</code> 
+So you need to pass the account info as an argument in the "balanceOf" method.
 
-For example, "balanceOf" methond in NEP5 returns the token balance of the '''account'''.
-<code>public static BigInteger balanceOf(byte[] account)</code>
+#### 2.2 Invoke "balanceOf" function
+
 If the address of the account is AJShjraX4iMJjwVt8WYYzZyGvDMxw6Xfbe, you need to convert it into Hash160 type and construct this parameter as a json object such as:
 ```json
 {
@@ -109,7 +122,48 @@ After sending the request, you will get the following response：
     }
 }
 ```
-It returns the balance of the account.
+It returns "00e1f505" which can be converted to interger 100000000.
+
+#### 2.3 Invoke "decimals" function
+
+Request Body：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "invokefunction",
+  "params": [
+    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "decimals", 
+    []
+    ],
+  "id": 2
+}
+```
+
+After sending the request, you will get the following response：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 2,
+    "result": {
+        "state": "HALT, BREAK",
+        "gas_consumed": "0.156",
+        "stack": [
+            {
+                "type": "Integer",
+                "value": "8"
+            }
+        ]
+    }
+}
+```
+It returns integer 8.
+
+#### 2.4 Calculate the correct balance
+The balance = $100000000/10^8=1$
+
 
 ### 3.Withdraw
 
