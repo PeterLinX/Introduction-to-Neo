@@ -57,7 +57,7 @@ There is an array of notifications in this json file. There is only one object i
 
 ### 2.Query
 
-If you need to query someone's balance you should invoke two functions which are "balanceOf" and "decimals". Then You can get balance by combing these two numbers correctly.
+If you need to query someone's balance you should invoke 3 functions in NEP5 which are "balanceOf", "decimals" and "symbol". Then You can get the correct balance.
 
 #### 2.1 Use RPC API "invokefunction"
 You can use rpc api "invokefunction" by sending json to neo rpc server to query someone's balance. There're 3 parameters that you need to set up.
@@ -161,8 +161,46 @@ After sending the request, you will get the following response：
 ```
 It returns integer 8.
 
-#### 2.4 Calculate the correct balance
-The balance = $100000000/10^8=1$
+#### 2.4 Invoke "symbol" function
+
+Request Body：
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "invokefunction",
+  "params": [
+    "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+    "symbol", 
+    []
+    ],
+  "id": 1
+}
+```
+
+After sending the request, you will get the following response：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "state": "HALT, BREAK",
+        "gas_consumed": "0.141",
+        "stack": [
+            {
+                "type": "ByteArray",
+                "value": "525058"
+            }
+        ]
+    }
+}
+```
+It returns "525058" which can be converted to string "RPX".
+
+#### 2.5 Calculate the correct balance
+According these three important infos by invoking functions in NEP5, we can get the correct balance.
+The balance = 100000000/10^8 RPX = 1 RPX
 
 
 ### 3.Withdraw
@@ -246,5 +284,5 @@ This standard defines two method types:
 
 #### Implementation
 
-*Woolong: https://github.com/lllwvlvwlll/Woolong
+*Woolong: https://github.com/lllwvlvwlll/Woolong  
 *ICO Template: https://github.com/neo-project/examples/tree/master/ICO_Template
