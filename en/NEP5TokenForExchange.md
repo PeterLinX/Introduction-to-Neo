@@ -6,6 +6,7 @@
 #### 1.2 Receive Notifications
 If you need to get the notification of user's deposit, you can simply add parameter "--record-notifications". A document file called "notifications" will be generated in root path. 
 ![img](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/NEP5TokenForExchange/1.jpg)
+
 Notifications in every block will be recorded in a json file such as: 
 ![img](https://github.com/PeterLinX/Introduction-to-Neo/blob/master/en/images/NEP5TokenForExchange/2.jpg)
 
@@ -49,8 +50,8 @@ There is an array of notifications in this json file. There is only one object i
 - The first object of the array will be the name of the "transfer" event : 
 ```json
 {
-		"type": "ByteArray",
-		"value": "7472616e73666572"
+	"type": "ByteArray",
+	"value": "7472616e73666572"
 }
 ```
 (3) Filter the third object in "state". If it is the address of the exchange then you get a notification of deposit.
