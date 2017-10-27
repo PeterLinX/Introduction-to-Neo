@@ -206,6 +206,168 @@ The balance = 100000000/10^8 RPX = 1 RPX
 
 ### 3.Withdraw
 
+There're 3 ways for exchange to send asset to users. 
+(1)neo-cli command: send
+(2)rpc method: sendtoaddress
+(3)rpc method: sendmany
+
+#### 3.1 neo-cli command: send
+
+`send <txid|script hash> <address> <value> [fee = 0]`
+
+There're 4 parameters. The first parameter is the asset ID, the second parameter is the payment address, the third parameter is the transfer amount, and the fourth parameter is the fee. (This parameter can be left empty, and the default is 0) The command needs to verify the wallet password. For example, in order to transfer 100 RPX to the address "AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b", you need to enter the following command.
+
+`send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100`
+
+If you need to send global asset, just change the first parameter to txid. For example, 
+The txid of NEO: 0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
+The txid of GAS: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+
+#### 3.2 rpc method: sendtoaddress
+
+The value of key "params" is an array of 4 parameters. 
+
+`"params":[script hash, address, amount, fee(optional), change address(optional)]`
+
+For example, if I send 1 RPX to AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg , then I can construct a json below and send it to rpc server.
+
+Request Body：
+
+```json
+{
+    "jsonrpc":"2.0",
+    "method":"sendtoaddress",
+    "params":[
+        "0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+        "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg",
+        "1",
+        "0",
+        "ARkJ8QcVdYL68WRvN3wj3TSvXX8CgmC73Z"
+    ],
+    "id":1
+}
+```
+
+After sending the request, you will get the following response：
+
+```json
+{
+    "jsonrpc":"2.0",
+    "id":1,
+    "result":{
+        "txid":"0xc6d4bf7c62fb47e0b2a6e838c3a1ca297622a1b1df7ceb2d30fa4ef8b7870700",
+        "size":219,
+        "type":"InvocationTransaction",
+        "version":1,
+        "attributes":[
+            {
+                "usage":"Script",
+                "data":"5305fbbd4bd5a5e3e859b452b7897157eb20144f"
+            }
+        ],
+        "vin":[
+
+        ],
+        "vout":[
+
+        ],
+        "sys_fee":"0",
+        "net_fee":"0",
+        "scripts":[
+            {
+                "invocation":"4054fbfca678737ae164ebf0e476da0c8215782bc42b67ae08cf4d8a716eeef81fcc17641e7f63893c3e685fb7eb1fb8516161c5257af41630f4508dde3afa3a8c",
+                "verification":"210331d1feacd79b53aeeeeb9de56018eadcd07948675a50258f9e64a1204b5d58d1ac"
+            }
+        ],
+        "script":"0400e1f50514d710f6f3f0bad2996a09a56d454cfc116a881bfd145305fbbd4bd5a5e3e859b452b7897157eb20144f53c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166187b7883718089c8",
+        "gas":"0"
+    }
+}
+```
+
+#### 3.3 rpc method: sendmany
+The value of key "params" is an array of 4 parameters. 
+
+`"params":[[], fee(optional), change address(optional)]`
+
+For example, if I send 15.5 RPX and 0.0001 GAS to AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg and the change address is also set to AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg, then I can construct a json below and send it to rpc server.
+
+Request Body：
+
+```json
+{
+    "jsonrpc":"2.0",
+    "method":"sendmany",
+    "params":[
+        [
+            {
+                "asset":"0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9",
+                "value":"15.5",
+                "address":"AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+            },
+            {
+                "asset":"0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
+                "value":"0.0001",
+                "address":"AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+            }
+        ],"0.00001","AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+    ],
+    "id":1
+}
+```
+
+After sending the request, you will get the following response：
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "txid": "0xe1351c9c9f2205a801d1b04f0df2d65fb4b1692d7d3b06cf41e0712fd1b12c9c",
+        "size": 373,
+        "type": "InvocationTransaction",
+        "version": 1,
+        "attributes": [
+            {
+                "usage": "Script",
+                "data": "6d64dc9e50af8e911247436b264c8f7d791ad58c"
+            }
+        ],
+        "vin": [
+            {
+                "txid": "0x9f0a28a912527604ab4b7d5e8b8d1a9b57631fcbab460132811ae7b6ed1ccaff",
+                "vout": 1
+            }
+        ],
+        "vout": [
+            {
+                "n": 0,
+                "asset": "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
+                "value": "0.0001",
+                "address": "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+            },
+            {
+                "n": 1,
+                "asset": "0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7",
+                "value": "0.01359",
+                "address": "AbP3FU3YcqBrWh72nc9deyQB99eazG9XUg"
+            }
+        ],
+        "sys_fee": "0",
+        "net_fee": "0.00001",
+        "scripts": [
+            {
+                "invocation": "40644ab915419dbf855a52d5c75596e80b78c8e928cc0ce91ae6afc3b75a0c31ee54efe1836f9ec232f6c42dcb3ace0bfdc688e626944fa20970a76064975eade9",
+                "verification": "2103d4b6fc2d116855f86a483d151182f68e88e6ddd13f3f1f3631e36300aac122bfac"
+            }
+        ],
+        "script": "04801f635c14d710f6f3f0bad2996a09a56d454cfc116a881bfd146d64dc9e50af8e911247436b264c8f7d791ad58c53c1087472616e7366657267f91d6b7085db7c5aaf09f19eeec1ca3c0db2c6ecf166f871fb30fc859b77",
+        "gas": "0"
+    }
+}
+```
+
+
 ### Appendix: NEP5 Token Standard
 
 You can find the original description here: [Token Standard](https://github.com/neo-project/proposals/blob/master/nep-5.mediawiki "NEP5")
