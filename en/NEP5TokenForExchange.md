@@ -44,7 +44,7 @@ There is an array of notifications in this json file. There is only one object i
 
 #### 1.4 Analyse json file
 
-(1) Filter contract by checking the value of "contract". Then you can have the right asset type.
+(1) Filter contract by checking the value of "contract". Then you can have the right asset type.  
 (2) Filter the function by checking the first object in "state". If the event is "transfer" then the value of the "state" will be:
 - An array of 4 objects: [event, from, to, amount]. It includes all information of a transaction;
 - The first object of the array will be the name of the "transfer" event : 
@@ -63,13 +63,13 @@ If you need to query someone's balance you should invoke 3 functions in NEP5 whi
 #### 2.1 Use RPC API "invokefunction"
 You can use rpc api "invokefunction" by sending json to neo rpc server to query someone's balance. There're 3 parameters that you need to set up.
 
-(1) Script hash
+(1) Script hash  
 Set up the script hash of the NEP5 token you are querying. For example, you can find the script hash of RPX is : 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9.
 
-(2) The name of the method
+(2) The name of the method  
 Set up the name of the method you are invoking. According to NEP5，if someone need to query his token balance he should invoke function "balanceOf".
 
-(3) The arguments of the method
+(3) The arguments of the method  
 According to NEP5，there're two parameters in the main function. The first parameter is the name of methond that you need to invoke. The second parameter is an array, which is optional. If the method you are invoking need some arguments, you can passing them by constructing these parameters into an array. For example, "balanceOf" methond in NEP5 returns the token balance of the '''account'''.
 <code>public static BigInteger balanceOf(byte[] account)</code> 
 So you need to pass the account info as an argument in the "balanceOf" method.
