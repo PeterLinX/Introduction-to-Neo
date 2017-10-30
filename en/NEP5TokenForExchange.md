@@ -70,8 +70,8 @@ Set up the script hash of the NEP5 token you are querying. For example, you can 
 Set up the name of the method you are invoking. According to NEP5，if someone need to query his token balance he should invoke function "balanceOf".
 
 (3) The arguments of the method  
-According to NEP5，there're two parameters in the main function. The first parameter is the name of methond that you need to invoke. The second parameter is an array, which is optional. If the method you are invoking need some arguments, you can passing them by constructing these parameters into an array. For example, "balanceOf" methond in NEP5 returns the token balance of the '''account'''.
-<code>public static BigInteger balanceOf(byte[] account)</code> 
+According to NEP5，there're two parameters in the main function. The first parameter is the name of methond that you need to invoke. The second parameter is an array, which is optional. If the method you are invoking need some arguments, you can passing them by constructing these parameters into an array. For example, "balanceOf" methond in NEP5 returns the token balance of the '''account'''.  
+<code>public static BigInteger balanceOf(byte[] account)</code>  
 So you need to pass the account info as an argument in the "balanceOf" method.
 
 #### 2.2 Invoke "balanceOf" function
@@ -206,10 +206,10 @@ The balance = 100000000/10^8 RPX = 1 RPX
 
 ### 3.Withdraw
 
-There're 3 ways for exchange to send asset to users. 
-(1)neo-cli command: send
-(2)rpc method: sendtoaddress
-(3)rpc method: sendmany
+There're 3 ways for exchange to send asset to users.  
+(1)neo-cli command: send  
+(2)rpc method: sendtoaddress  
+(3)rpc method: sendmany  
 
 #### 3.1 neo-cli command: send
 
@@ -219,9 +219,9 @@ There're 4 parameters. The first parameter is the asset ID, the second parameter
 
 `send 0xecc6b20d3ccac1ee9ef109af5a7cdb85706b1df9 AeSHyuirtXbfZbFik6SiBW2BEj7GK3N62b 100`
 
-If you need to send global asset, just change the first parameter to txid. For example, 
-The txid of NEO: 0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b
-The txid of GAS: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7
+If you need to send global asset, just change the first parameter to txid. For example,  
+The txid of NEO: 0Xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b  
+The txid of GAS: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282de7  
 
 #### 3.2 rpc method: sendtoaddress
 
