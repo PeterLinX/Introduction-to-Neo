@@ -286,7 +286,7 @@ After sending the request, you will get the following response：
 ```
 
 #### 3.3 rpc method: sendmany
-The value of key "params" is an array of 1 parameters. 
+The value of key "params" is an array of at least 1 parameters. 
 
 `"params":[[], fee(optional), change address(optional)]`
 

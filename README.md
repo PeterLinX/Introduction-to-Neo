@@ -1,5 +1,5 @@
 # Introduction to Neo
-Articles to explain details about Neo
+Articles to explain details about Neo.
 
 ## Contents
 
