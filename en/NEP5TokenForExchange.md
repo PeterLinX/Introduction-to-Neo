@@ -225,7 +225,7 @@ The txid of GAS: 0x602c79718b16e442de58778e148d0b1084e3b2dffd5de6b7b16cee7969282
 
 #### 3.2 rpc method: sendtoaddress
 
-The value of key "params" is an array of 4 parameters. 
+The value of key "params" is an array of at least 3 parameters. 
 
 `"params":[script hash, address, amount, fee(optional), change address(optional)]`
 
@@ -286,7 +286,7 @@ After sending the request, you will get the following response：
 ```
 
 #### 3.3 rpc method: sendmany
-The value of key "params" is an array of 4 parameters. 
+The value of key "params" is an array of 1 parameters. 
 
 `"params":[[], fee(optional), change address(optional)]`
 
